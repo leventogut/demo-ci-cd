@@ -10,7 +10,7 @@
     LOFT_URL: ${{ secrets.LOFT_URL }}
     LOFT_USERNAME: ${{ secrets.LOFT_USERNAME }}
     LOFT_ACCESS_KEY: ${{ secrets.LOFT_ACCESS_KEY }}
-    VCLUSTERNAME: 'ci'
+    VCLUSTER_NAME: 'ci'
   jobs:
     setup-test-publish-deploy:
       name: Setup, test, publish, deploy
@@ -37,19 +37,19 @@
       - name: Loft delete vcluster
         continue-on-error: true
         run: |
-          ./loft delete vcluster $VCLUSTERNAME
+          ./loft delete vcluster $VCLUSTER_NAME
 
       - name: Create virtual cluster
         run: |
-          ./loft create vcluster $VCLUSTERNAME
+          ./loft create vcluster $VCLUSTER_NAME
 
       - name: Loft use vcluster
         run: |
-          ./loft use vcluster $VCLUSTERNAME
+          ./loft use vcluster $VCLUSTER_NAME
 
       - name: Loft use vcluster display for debug
         run: |
-          ./loft use vcluster $VCLUSTERNAME --print --silent
+          ./loft use vcluster $VCLUSTER_NAME --print --silent
 
       - name: Get all objects
         run: |
@@ -57,4 +57,4 @@
 
       - name: Cleanup (Loft delete vcluster)
         run: |
-          ./loft delete vcluster $VCLUSTERNAME
+          ./loft delete vcluster $VCLUSTER_NAME
