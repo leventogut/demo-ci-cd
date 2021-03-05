@@ -7,8 +7,8 @@
 
   env:
     LOFT_VERSION: '1.7.2'
-    LOFT_URL: 'https://loft.l3v.co'
-    LOFT_USERNAME: 'admin'
+    LOFT_URL: ${{ secrets.LOFT_URL }}
+    LOFT_USERNAME: ${{ secrets.LOFT_USERNAME }}
     LOFT_ACCESS_KEY: ${{ secrets.LOFT_ACCESS_KEY }}
     VCLUSTERNAME: 'ci'
   jobs:
@@ -45,7 +45,7 @@
 
       - name: Loft use vcluster
         run: |
-          ./loft use vcluster $VCLUSTERNAME --print --silent 
+          ./loft use vcluster $VCLUSTERNAME --print --silent
 
       - name: Get all objects
         run: |
