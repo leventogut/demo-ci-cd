@@ -47,6 +47,10 @@
         run: |
           ./loft use vcluster $VCLUSTERNAME
 
+      - name: Loft use vcluster display for debug
+        run: |
+          ./loft use vcluster $VCLUSTERNAME --print --silent
+
       - name: Get all objects
         run: |
           ./kubectl get all --all-namespaces
