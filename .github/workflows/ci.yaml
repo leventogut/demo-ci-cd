@@ -45,7 +45,7 @@
 
       - name: Loft use vcluster
         run: |
-          ./loft use vcluster $VCLUSTERNAME --print --silent
+          ./loft use vcluster $VCLUSTERNAME --print --silent 
 
       - name: Get all objects
         run: |
