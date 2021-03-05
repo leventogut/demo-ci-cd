@@ -1,4 +1,4 @@
-  name: Run end to end tests using a virtual kubernetes cluster.
+  name: Run end to end tests using a virtual kubernetes cluster
 
   on:
     push:
