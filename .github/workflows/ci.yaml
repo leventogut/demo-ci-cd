@@ -49,11 +49,11 @@
 
       - name: Loft use vcluster display for debug
         run: |
-          ./loft use vcluster $VCLUSTER_NAME --print --silent
+          ./loft use vcluster $VCLUSTER_NAME --print --silent > kube_config
 
       - name: Get all objects
         run: |
-          ./kubectl --kubeconfig='.kube/config' get all --all-namespaces
+          ./kubectl --kubeconfig='kube_config' get all --all-namespaces
 
       - name: Cleanup (Loft delete vcluster)
         run: |
