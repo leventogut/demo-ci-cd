@@ -53,7 +53,7 @@
 
       - name: Get all objects
         run: |
-          ./kubectl get all --all-namespaces
+          ./kubectl --kubeconfig='~/.kube/config' get all --all-namespaces
 
       - name: Cleanup (Loft delete vcluster)
         run: |
