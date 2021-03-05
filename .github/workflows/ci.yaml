@@ -38,6 +38,7 @@
         continue-on-error: true
         run: |
           ./loft delete vcluster $VCLUSTER_NAME
+          sleep 30
 
       - name: Create virtual cluster
         run: |
