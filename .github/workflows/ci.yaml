@@ -6,7 +6,7 @@
       - master
 
   env:
-    LOFT_VERSION: '1.8.0'
+    LOFT_VERSION: '1.8.2'
     LOFT_URL: 'https://loft.l3v.co'
     LOFT_USERNAME: ${{ secrets.LOFT_USERNAME }}
     LOFT_ACCESS_KEY: ${{ secrets.LOFT_ACCESS_KEY }}
@@ -38,7 +38,6 @@
         continue-on-error: true
         run: |
           ./loft delete vcluster $VCLUSTER_NAME
-          sleep 30
 
       - name: Create virtual cluster
         run: |
@@ -54,7 +53,7 @@
 
       - name: Get all objects
         run: |
-          ./kubectl --kubeconfig='kube_config' get po --all-namespaces
+          ./kubectl --kubeconfig='kube_config' get all --all-namespaces
 
       - name: Cleanup (Loft delete vcluster)
         run: |
